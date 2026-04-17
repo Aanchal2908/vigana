@@ -14,7 +14,7 @@ const products = [
   {
     id: 2,
     name: 'Amethyst Earrings',
-    price: 2299,
+    price: 359,
     image: `${import.meta.env.BASE_URL}images/amethyst,png.jpeg`,
     description: 'Gold-wrapped amethyst earrings for calm, protective energy.',
     speciality: 'Amethyst • Calm • Protection (Third Eye & Crown)',
@@ -22,15 +22,15 @@ const products = [
   {
     id: 3,
     name: 'Ruby Sun Necklace',
-    price: 2599,
+    price: 450,
     image: `${import.meta.env.BASE_URL}images/ruby.png.jpeg`,
     description: 'Bold ruby pendant with sun charm for radiant confidence.',
     speciality: 'Ruby • Confidence • Vitality (Sun)',
   },
   {
-    id: 4,
+    id: 4
     name: 'Rose Quartz Heart Necklace',
-    price: 2199,
+    price: 399,
     image: `${import.meta.env.BASE_URL}images/rose-quartz.png.jpeg`,
     description: 'Soft pink rose quartz pendant for love and harmony.',
     speciality: 'Rose Quartz • Love • Harmony (Heart Chakra)',
@@ -38,7 +38,7 @@ const products = [
   {
     id: 5,
     name: 'Emerald Leaf Necklace',
-    price: 2499,
+    price: 349,
     image: `${import.meta.env.BASE_URL}images/emerald.png.jpeg`,
     description: 'Emerald pendant with leaf charm for growth and wisdom.',
     speciality: 'Emerald • Growth • Wisdom (Mercury)',
@@ -46,7 +46,7 @@ const products = [
   {
     id: 6,
     name: 'Yellow Sapphire Bracelet',
-    price: 2399,
+    price: 249,
     image: `${import.meta.env.BASE_URL}images/yellow-sapphire.png.jpeg`,
     description: 'Warm yellow sapphire bracelet for wealth and fortune.',
     speciality: 'Yellow Sapphire • Wealth • Fortune (Jupiter)',
