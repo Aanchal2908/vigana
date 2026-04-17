@@ -6,7 +6,7 @@ const products = [
   {
     id: 1,
     name: 'Hematite Bracelet',
-    price: 1999,
+    price: 199,
     image: `${import.meta.env.BASE_URL}images/hematite.png.jpeg`,
     description: 'Grounding beaded bracelet with a detailed silver charm.',
     speciality: 'Hematite • Grounding • Strength (Root Chakra)',
@@ -81,9 +81,12 @@ function App() {
   })
   const [designSummary, setDesignSummary] = useState('')
   const [requestMessage, setRequestMessage] = useState('')
+  const [orderMessage, setOrderMessage] = useState('')
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
 
   const addToCart = (product) => {
     setCartItems((current) => [...current, product])
+    setOrderMessage('')
   }
 
   const handleCustomizationChange = (field, value) => {
@@ -121,6 +124,31 @@ function App() {
     event.currentTarget.src = fallbackImage
   }
 
+  const placeOrder = () => {
+    if (!cartItems.length) {
+      setOrderMessage('Add at least one item to place your order.')
+      return
+    }
+
+    setOrderMessage('Order placed successfully! Our team will contact you shortly.')
+    setCartItems([])
+    setIsOrderModalOpen(false)
+  }
+
+  const openOrderModal = () => {
+    if (!cartItems.length) {
+      setOrderMessage('Add at least one item to place your order.')
+      return
+    }
+
+    setOrderMessage('')
+    setIsOrderModalOpen(true)
+  }
+
+  const closeOrderModal = () => {
+    setIsOrderModalOpen(false)
+  }
+
   return (
     <div className="site">
       <header className="navbar">
@@ -147,6 +175,10 @@ function App() {
           <h3>Cart Summary</h3>
           <p>{cartItems.length} item(s) added</p>
           <span>INR {totalPrice.toLocaleString('en-IN')}</span>
+          <button type="button" onClick={openOrderModal}>
+            Place Order
+          </button>
+          {orderMessage && <p className="order-message">{orderMessage}</p>}
         </div>
       </section>
 
@@ -316,6 +348,26 @@ function App() {
         <h2>Bring Home Your Signature Stone</h2>
         <p>Email: hello@astrastone.com | Instagram: @astrastonejewels</p>
       </footer>
+
+      {isOrderModalOpen && (
+        <div className="modal-backdrop" role="dialog" aria-modal="true">
+          <div className="order-modal">
+            <h3>Confirm Your Order</h3>
+            <p>
+              You are placing an order for {cartItems.length} item(s) worth INR{' '}
+              {totalPrice.toLocaleString('en-IN')}.
+            </p>
+            <div className="order-modal-actions">
+              <button type="button" onClick={closeOrderModal}>
+                Cancel
+              </button>
+              <button type="button" onClick={placeOrder}>
+                Confirm Order
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
