@@ -7,8 +7,7 @@ const products = [
     id: 1,
     name: 'Hematite Bracelet',
     price: 1999,
-    image:
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}images/hematite-bracelet.svg`,
     description: 'Grounding beaded bracelet with a detailed silver charm.',
     speciality: 'Hematite • Grounding • Strength (Root Chakra)',
   },
@@ -16,8 +15,7 @@ const products = [
     id: 2,
     name: 'Amethyst Earrings',
     price: 2299,
-    image:
-      'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}images/amethyst-earrings.svg`,
     description: 'Gold-wrapped amethyst earrings for calm, protective energy.',
     speciality: 'Amethyst • Calm • Protection (Third Eye & Crown)',
   },
@@ -25,8 +23,7 @@ const products = [
     id: 3,
     name: 'Ruby Sun Necklace',
     price: 2599,
-    image:
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}images/ruby-sun-necklace.svg`,
     description: 'Bold ruby pendant with sun charm for radiant confidence.',
     speciality: 'Ruby • Confidence • Vitality (Sun)',
   },
@@ -34,8 +31,7 @@ const products = [
     id: 4,
     name: 'Rose Quartz Heart Necklace',
     price: 2199,
-    image:
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}images/rose-quartz-heart-necklace.svg`,
     description: 'Soft pink rose quartz pendant for love and harmony.',
     speciality: 'Rose Quartz • Love • Harmony (Heart Chakra)',
   },
@@ -43,8 +39,7 @@ const products = [
     id: 5,
     name: 'Emerald Leaf Necklace',
     price: 2499,
-    image:
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}images/emerald-leaf-necklace.svg`,
     description: 'Emerald pendant with leaf charm for growth and wisdom.',
     speciality: 'Emerald • Growth • Wisdom (Mercury)',
   },
@@ -52,8 +47,7 @@ const products = [
     id: 6,
     name: 'Yellow Sapphire Bracelet',
     price: 2399,
-    image:
-      'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80',
+    image: `${import.meta.env.BASE_URL}images/yellow-sapphire-bracelet.svg`,
     description: 'Warm yellow sapphire bracelet for wealth and fortune.',
     speciality: 'Yellow Sapphire • Wealth • Fortune (Jupiter)',
   },
@@ -68,16 +62,11 @@ const stoneMeaningMap = {
 }
 
 const stoneImageMap = {
-  Ruby:
-    'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80',
-  Emerald:
-    'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80',
-  'Yellow Sapphire':
-    'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80',
-  Amethyst:
-    'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80',
-  'Lapis Lazuli':
-    'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=80',
+  Ruby: `${import.meta.env.BASE_URL}images/ruby-sun-necklace.svg`,
+  Emerald: `${import.meta.env.BASE_URL}images/emerald-leaf-necklace.svg`,
+  'Yellow Sapphire': `${import.meta.env.BASE_URL}images/yellow-sapphire-bracelet.svg`,
+  Amethyst: `${import.meta.env.BASE_URL}images/amethyst-earrings.svg`,
+  'Lapis Lazuli': `${import.meta.env.BASE_URL}images/hematite-bracelet.svg`,
 }
 
 function App() {
