@@ -28,7 +28,7 @@ const products = [
     speciality: 'Ruby • Confidence • Vitality (Sun)',
   },
   {
-    id: 4
+    id: 4,
     name: 'Rose Quartz Heart Necklace',
     price: 399,
     image: `${import.meta.env.BASE_URL}images/rose-quartz.png.jpeg`,
