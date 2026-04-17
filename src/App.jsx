@@ -1,11 +1,14 @@
 import { useMemo, useState } from 'react'
 
+const fallbackImage = `${import.meta.env.BASE_URL}favicon.svg`
+
 const products = [
   {
     id: 1,
     name: 'Hematite Bracelet',
     price: 1999,
-    image: '/images/hematite.png.jpeg',
+    image:
+      'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=80',
     description: 'Grounding beaded bracelet with a detailed silver charm.',
     speciality: 'Hematite • Grounding • Strength (Root Chakra)',
   },
@@ -13,7 +16,8 @@ const products = [
     id: 2,
     name: 'Amethyst Earrings',
     price: 2299,
-    image: '/images/amethyst,png.jpeg',
+    image:
+      'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80',
     description: 'Gold-wrapped amethyst earrings for calm, protective energy.',
     speciality: 'Amethyst • Calm • Protection (Third Eye & Crown)',
   },
@@ -21,7 +25,8 @@ const products = [
     id: 3,
     name: 'Ruby Sun Necklace',
     price: 2599,
-    image: '/images/ruby.png.jpeg',
+    image:
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80',
     description: 'Bold ruby pendant with sun charm for radiant confidence.',
     speciality: 'Ruby • Confidence • Vitality (Sun)',
   },
@@ -29,7 +34,8 @@ const products = [
     id: 4,
     name: 'Rose Quartz Heart Necklace',
     price: 2199,
-    image: '/images/rose-quartz.png.jpeg',
+    image:
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80',
     description: 'Soft pink rose quartz pendant for love and harmony.',
     speciality: 'Rose Quartz • Love • Harmony (Heart Chakra)',
   },
@@ -37,7 +43,8 @@ const products = [
     id: 5,
     name: 'Emerald Leaf Necklace',
     price: 2499,
-    image: '/images/emerald.png.jpeg',
+    image:
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80',
     description: 'Emerald pendant with leaf charm for growth and wisdom.',
     speciality: 'Emerald • Growth • Wisdom (Mercury)',
   },
@@ -45,7 +52,8 @@ const products = [
     id: 6,
     name: 'Yellow Sapphire Bracelet',
     price: 2399,
-    image: '/images/yellow-sapphire.png.jpeg',
+    image:
+      'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80',
     description: 'Warm yellow sapphire bracelet for wealth and fortune.',
     speciality: 'Yellow Sapphire • Wealth • Fortune (Jupiter)',
   },
@@ -60,11 +68,16 @@ const stoneMeaningMap = {
 }
 
 const stoneImageMap = {
-  Ruby: '/images/ruby.png.jpeg',
-  Emerald: '/images/emerald.png.jpeg',
-  'Yellow Sapphire': '/images/yellow-sapphire.png.jpeg',
-  Amethyst: '/images/amethyst,png.jpeg',
-  'Lapis Lazuli': '/images/hematite.png.jpeg',
+  Ruby:
+    'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=80',
+  Emerald:
+    'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80',
+  'Yellow Sapphire':
+    'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=900&q=80',
+  Amethyst:
+    'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80',
+  'Lapis Lazuli':
+    'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=80',
 }
 
 function App() {
@@ -114,6 +127,11 @@ function App() {
     [cartItems],
   )
 
+  const handleImageError = (event) => {
+    event.currentTarget.onerror = null
+    event.currentTarget.src = fallbackImage
+  }
+
   return (
     <div className="site">
       <header className="navbar">
@@ -148,7 +166,7 @@ function App() {
         <div className="product-grid">
           {products.map((product) => (
             <article className="product-card" key={product.id}>
-              <img src={product.image} alt={product.name} />
+              <img src={product.image} alt={product.name} onError={handleImageError} />
               <div className="product-content">
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
@@ -274,6 +292,7 @@ function App() {
             <img
               src={stoneImageMap[customization.stone]}
               alt={`${customization.stone} preview`}
+              onError={handleImageError}
             />
             <div className="preview-tags">
               <span>{customization.stone}</span>
